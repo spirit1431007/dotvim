@@ -503,7 +503,7 @@ endif
 set tabpagemax=50
 " make it unusable so it won't clash
 set termwinkey=<C-\\>
-set backup backupcopy=no
+set backup
 if has('&splitkeep')
   set splitkeep=screen
 endif
