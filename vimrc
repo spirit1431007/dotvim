@@ -606,6 +606,13 @@ if &term =~ '^screen\|^tmux' && exists('&t_BE')
   exec "set t_PS=\033[200~"
   exec "set t_PE=\033[201~"
 endif
+" Focus* events
+if &term =~ '^screen\|^tmux' && exists('&t_fe')
+  let &t_fe = "\<Esc>[?1004h"
+  let &t_fd = "\<Esc>[?1004l"
+  execute "set <FocusGained>=\<Esc>[I"
+  execute "set <FocusLost>=\<Esc>[O"
+endif
 if &term =~ '^screen\|^tmux'
   " This may leave mouse in use by terminal application
   " exec "set t_RV=\033Ptmux;\033\033[>c\033\\"
